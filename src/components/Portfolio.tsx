@@ -25,7 +25,10 @@ function useReveal() {
 function useTypedRole() {
   const [text, setText] = useState("");
   useEffect(() => {
-    let roleIdx = 0, charIdx = 0, deleting = false, t: ReturnType<typeof setTimeout>;
+    let roleIdx = 0,
+      charIdx = 0,
+      deleting = false,
+      t: ReturnType<typeof setTimeout>;
     const tick = () => {
       const role = ROLES[roleIdx];
       if (!deleting) {
@@ -67,7 +70,8 @@ export default function Portfolio() {
   useReveal();
 
   useEffect(() => {
-    const saved = (localStorage.getItem("theme") as "dark" | "light" | null) ??
+    const saved =
+      (localStorage.getItem("theme") as "dark" | "light" | null) ??
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     setTheme(saved);
   }, []);
@@ -128,7 +132,11 @@ export default function Portfolio() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 h-full flex items-center gap-8">
-          <a href="#hero" onClick={(e) => handleNav(e, "hero")} className="font-bold text-sm tracking-tight">
+          <a
+            href="#hero"
+            onClick={(e) => handleNav(e, "hero")}
+            className="font-bold text-sm tracking-tight"
+          >
             <span className="text-primary">[</span>NCG<span className="text-primary">]</span>
           </a>
           <ul className="hidden md:flex ml-auto gap-1">
@@ -207,9 +215,9 @@ export default function Portfolio() {
               <span className="animate-pulse text-primary">|</span>
             </div>
             <p className="reveal text-muted-foreground max-w-xl leading-relaxed mb-8">
-              Motivated IT student seeking entry-level opportunities in software development,
-              data encoding, and computer systems. Skilled in programming fundamentals,
-              organization, and problem-solving.
+              Motivated IT student seeking entry-level opportunities in software development, data
+              encoding, and computer systems. Skilled in programming fundamentals, organization, and
+              problem-solving.
             </p>
             <div className="reveal flex flex-wrap gap-3">
               <a
@@ -230,15 +238,22 @@ export default function Portfolio() {
           </div>
           <div className="reveal">
             <div className="relative aspect-square bg-card border border-border">
-              <img src={heroImg} alt="Nhyl Cyrus J. Gervasio" className="w-full h-full object-cover" />
+              <img
+                src={heroImg}
+                alt="Nhyl Cyrus J. Gervasio"
+                className="w-full h-full object-cover"
+              />
               {(["tl", "tr", "bl", "br"] as const).map((c) => (
                 <span
                   key={c}
                   className={`absolute w-4 h-4 border-primary ${
-                    c === "tl" ? "top-[-1px] left-[-1px] border-t-2 border-l-2" :
-                    c === "tr" ? "top-[-1px] right-[-1px] border-t-2 border-r-2" :
-                    c === "bl" ? "bottom-[-1px] left-[-1px] border-b-2 border-l-2" :
-                    "bottom-[-1px] right-[-1px] border-b-2 border-r-2"
+                    c === "tl"
+                      ? "-top-px -left-px border-t-2 border-l-2"
+                      : c === "tr"
+                        ? "-top-px -right-px border-t-2 border-r-2"
+                        : c === "bl"
+                          ? "-bottom-px -left-px border-b-2 border-l-2"
+                          : "-bottom-px -right-px border-b-2 border-r-2"
                   }`}
                 />
               ))}
@@ -249,9 +264,14 @@ export default function Portfolio() {
                 { n: "80h", l: "internship" },
                 { n: "BS IT", l: "degree" },
               ].map((s, i) => (
-                <div key={s.l} className={`p-4 text-center ${i < 2 ? "border-r border-border" : ""}`}>
+                <div
+                  key={s.l}
+                  className={`p-4 text-center ${i < 2 ? "border-r border-border" : ""}`}
+                >
                   <div className="text-xl font-bold text-primary">{s.n}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">{s.l}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">
+                    {s.l}
+                  </div>
                 </div>
               ))}
             </div>
@@ -269,29 +289,37 @@ export default function Portfolio() {
             <p className="text-muted-foreground mb-4 leading-relaxed">
               I'm a BS Information Technology student at STI College San Jose del Monte with
               hands-on project experience across Java applications, web systems, and cloud
-              platforms. My internship at San Jose del Monte City Hall's Engineering Department
-              gave me real-world exposure to tech in governance contexts.
+              platforms. My internship at San Jose del Monte City Hall's Engineering Department gave
+              me real-world exposure to tech in governance contexts.
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I approach every project with clarity and methodical thinking — from systems
-              design to implementation and deployment.
+              I approach every project with clarity and methodical thinking — from systems design to
+              implementation and deployment.
             </p>
             <div className="flex flex-wrap gap-2">
               {["Java", "Web Systems", "Database", "Cloud", "System Design"].map((t) => (
-                <span key={t} className="text-xs px-3 py-1.5 border border-border bg-card">{t}</span>
+                <span key={t} className="text-xs px-3 py-1.5 border border-border bg-card">
+                  {t}
+                </span>
               ))}
             </div>
           </div>
           <div className="space-y-3">
             {[
-              { t: "Education", v: "BS Information Technology", s: "STI College San Jose del Monte" },
+              {
+                t: "Education",
+                v: "BS Information Technology",
+                s: "STI College San Jose del Monte",
+              },
               { t: "Location", v: "San Jose del Monte", s: "Bulacan, Philippines" },
               { t: "Focus", v: "Software Development", s: "Data Encoding · Computer Systems" },
             ].map((c) => (
               <div key={c.t} className="reveal flex gap-4 p-4 border border-border bg-card">
                 <span className="text-primary text-lg">◈</span>
                 <div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{c.t}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                    {c.t}
+                  </div>
                   <div className="font-semibold mt-0.5">{c.v}</div>
                   <div className="text-xs text-muted-foreground mt-0.5">{c.s}</div>
                 </div>
@@ -308,18 +336,35 @@ export default function Portfolio() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="reveal p-6 border border-border bg-card">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Languages</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">
+              Languages
+            </div>
             <div className="space-y-4">
               {[
                 { n: "Java", w: 80 },
                 { n: "HTML / CSS", w: 75 },
                 { n: "JavaScript", w: 60 },
                 { n: "SQL", w: 70 },
-              ].map((s) => <SkillBar key={s.n} {...s} />)}
+              ].map((s) => (
+                <SkillBar key={s.n} {...s} />
+              ))}
             </div>
           </div>
-          <SkillTags title="Domains" tags={["System Design", "Database Management", "Web Development", "Cloud Computing", "Project Management", "Data Encoding"]} />
-          <SkillTags title="Tools & Platforms" tags={["Git / GitHub", "Cloud Services", "IDE Tools", "Database GUI"]} />
+          <SkillTags
+            title="Domains"
+            tags={[
+              "System Design",
+              "Database Management",
+              "Web Development",
+              "Cloud Computing",
+              "Project Management",
+              "Data Encoding",
+            ]}
+          />
+          <SkillTags
+            title="Tools & Platforms"
+            tags={["Git / GitHub", "Cloud Services", "IDE Tools", "Database GUI"]}
+          />
         </div>
       </Section>
 
@@ -330,22 +375,55 @@ export default function Portfolio() {
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
           {[
-            { n: "01", title: "I.D Processing System", desc: "A system designed to manage and automate the process of creating and issuing identification cards, streamlining administrative workflows.", tech: ["Java", "Database", "System Design"], status: "completed" },
-            { n: "02", title: "Alumni Management System", desc: "A platform used to manage alumni records, events, and communication between graduates and the institution — centralizing data and engagement.", tech: ["Web System", "Database"], status: "completed" },
-            { n: "03", title: "Cloud Construction Operations System", desc: "A cloud-based system designed to manage construction workflows, proposals, and project operations — built for scale and remote access.", tech: ["Cloud", "Project Management"], status: "ongoing", featured: true },
+            {
+              n: "01",
+              title: "I.D Processing System",
+              desc: "A system designed to manage and automate the process of creating and issuing identification cards, streamlining administrative workflows.",
+              tech: ["Java", "Database", "System Design"],
+              status: "completed",
+            },
+            {
+              n: "02",
+              title: "Alumni Management System",
+              desc: "A platform used to manage alumni records, events, and communication between graduates and the institution — centralizing data and engagement.",
+              tech: ["Web System", "Database"],
+              status: "completed",
+            },
+            {
+              n: "03",
+              title: "Cloud Construction Operations System",
+              desc: "A cloud-based system designed to manage construction workflows, proposals, and project operations — built for scale and remote access.",
+              tech: ["Cloud", "Project Management"],
+              status: "ongoing",
+              featured: true,
+            },
           ].map((p) => (
-            <article key={p.n} className={`reveal relative p-6 border border-border bg-card hover:bg-muted/30 transition-colors ${p.featured ? "md:col-span-2 border-primary" : ""}`}>
+            <article
+              key={p.n}
+              className={`reveal relative p-6 border border-border bg-card hover:bg-muted/30 transition-colors ${p.featured ? "md:col-span-2 border-primary" : ""}`}
+            >
               <div className="text-xs text-muted-foreground mb-3">{p.n}</div>
               <h3 className="text-xl font-bold mb-2">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {p.tech.map((t) => (
-                  <span key={t} className="text-[10px] uppercase tracking-wider px-2 py-1 border border-border">{t}</span>
+                  <span
+                    key={t}
+                    className="text-[10px] uppercase tracking-wider px-2 py-1 border border-border"
+                  >
+                    {t}
+                  </span>
                 ))}
               </div>
-              <div className={`absolute top-6 right-6 text-[10px] uppercase tracking-wider px-2 py-1 ${
-                p.status === "ongoing" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
-              }`}>{p.status}</div>
+              <div
+                className={`absolute top-6 right-6 text-[10px] uppercase tracking-wider px-2 py-1 ${
+                  p.status === "ongoing"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground"
+                }`}
+              >
+                {p.status}
+              </div>
             </article>
           ))}
         </div>
@@ -358,19 +436,42 @@ export default function Portfolio() {
         </h2>
         <div className="relative space-y-8 md:pl-8 md:before:absolute md:before:left-2 md:before:top-2 md:before:bottom-2 md:before:w-px md:before:bg-border">
           {[
-            { date: "2026", type: "internship", title: "Engineering Department Assistant", org: "San Jose del Monte City Hall", desc: "Completed 80 hours of on-the-job training within the Engineering Department. Gained hands-on experience in technology applications within local government operations.", tags: ["80 Hours OJT", "Government Tech"] },
-            { date: "2022–2026", type: "education", title: "BS Information Technology", org: "STI College San Jose del Monte", desc: "Four-year degree program with focus on software development, database management, system design, and cloud computing. Developed multiple real-world systems as academic projects.", tags: ["Systems Development", "Database", "Cloud"] },
+            {
+              date: "2026",
+              type: "internship",
+              title: "Engineering Department Assistant",
+              org: "San Jose del Monte City Hall",
+              desc: "Completed 80 hours of on-the-job training within the Engineering Department. Gained hands-on experience in technology applications within local government operations.",
+              tags: ["80 Hours OJT", "Government Tech"],
+            },
+            {
+              date: "2022–2026",
+              type: "education",
+              title: "BS Information Technology",
+              org: "STI College San Jose del Monte",
+              desc: "Four-year degree program with focus on software development, database management, system design, and cloud computing. Developed multiple real-world systems as academic projects.",
+              tags: ["Systems Development", "Database", "Cloud"],
+            },
           ].map((t) => (
             <div key={t.title} className="reveal relative">
               <div className="hidden md:block absolute -left-8 top-2 w-3 h-3 bg-primary" />
               <div className="text-xs text-primary mb-1">{t.date}</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-2">{t.type}</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-2">
+                {t.type}
+              </div>
               <h3 className="text-xl font-bold mb-1">{t.title}</h3>
               <div className="text-sm text-muted-foreground mb-3">{t.org}</div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3 max-w-2xl">{t.desc}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3 max-w-2xl">
+                {t.desc}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {t.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] uppercase tracking-wider px-2 py-1 border border-border">{tag}</span>
+                  <span
+                    key={tag}
+                    className="text-[10px] uppercase tracking-wider px-2 py-1 border border-border"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
@@ -389,18 +490,33 @@ export default function Portfolio() {
         <div className="grid md:grid-cols-2 gap-10">
           <div className="reveal grid sm:grid-cols-2 gap-3 content-start">
             {[
-              { icon: "✉", label: "email", val: "nhylcyrusgervasio@example.com", href: "mailto:nhylcyrusgervasio@example.com" },
+              {
+                icon: "✉",
+                label: "email",
+                val: "nhylcyrusgervasio@example.com",
+                href: "mailto:nhylcyrusgervasio@example.com",
+              },
               { icon: "☎", label: "phone", val: "+63 912 345 6789" },
               { icon: "◎", label: "location", val: "San Jose del Monte, Bulacan, PH" },
-              { icon: "⌥", label: "github", val: "github.com/Nhyl-Cyrus", href: "https://github.com/Nhyl-Cyrus" },
+              {
+                icon: "⌥",
+                label: "github",
+                val: "github.com/Nhyl-Cyrus",
+                href: "https://github.com/Nhyl-Cyrus",
+              },
             ].map((c) => {
               const Tag = c.href ? "a" : "div";
               return (
-                <Tag key={c.label} {...(c.href ? { href: c.href, target: "_blank", rel: "noreferrer" } : {})}
-                  className="flex gap-3 p-4 border border-border bg-card hover:bg-muted/30 transition-colors">
+                <Tag
+                  key={c.label}
+                  {...(c.href ? { href: c.href, target: "_blank", rel: "noreferrer" } : {})}
+                  className="flex gap-3 p-4 border border-border bg-card hover:bg-muted/30 transition-colors"
+                >
                   <span className="text-primary text-lg">{c.icon}</span>
                   <div className="min-w-0">
-                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{c.label}</div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                      {c.label}
+                    </div>
                     <div className="text-xs mt-1 truncate">{c.val}</div>
                   </div>
                 </Tag>
@@ -410,7 +526,12 @@ export default function Portfolio() {
           <form ref={formRef} onSubmit={handleSubmit} className="reveal space-y-4">
             {(["name", "email"] as const).map((f) => (
               <div key={f}>
-                <label htmlFor={f} className="text-[10px] uppercase tracking-wider text-muted-foreground block mb-1">{f}</label>
+                <label
+                  htmlFor={f}
+                  className="text-[10px] uppercase tracking-wider text-muted-foreground block mb-1"
+                >
+                  {f}
+                </label>
                 <input
                   id={f}
                   name={f}
@@ -422,7 +543,12 @@ export default function Portfolio() {
               </div>
             ))}
             <div>
-              <label htmlFor="message" className="text-[10px] uppercase tracking-wider text-muted-foreground block mb-1">message</label>
+              <label
+                htmlFor="message"
+                className="text-[10px] uppercase tracking-wider text-muted-foreground block mb-1"
+              >
+                message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -439,7 +565,9 @@ export default function Portfolio() {
               {sending ? "sending..." : "send message →"}
             </button>
             {formNote && (
-              <div className={`text-xs ${formNote.ok ? "text-primary" : "text-destructive"}`}>{formNote.msg}</div>
+              <div className={`text-xs ${formNote.ok ? "text-primary" : "text-destructive"}`}>
+                {formNote.msg}
+              </div>
             )}
           </form>
         </div>
@@ -452,7 +580,12 @@ export default function Portfolio() {
             <span className="text-primary">[</span>NCG<span className="text-primary">]</span>
           </div>
           <p>© 2026 Nhyl Cyrus J. Gervasio. Built with React & Tailwind.</p>
-          <a href="https://github.com/Nhyl-Cyrus" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
+          <a
+            href="https://github.com/Nhyl-Cyrus"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground transition-colors"
+          >
             github
           </a>
         </div>
@@ -461,7 +594,19 @@ export default function Portfolio() {
   );
 }
 
-function Section({ id, num, label, alt, children }: { id: string; num: string; label: string; alt?: boolean; children: React.ReactNode }) {
+function Section({
+  id,
+  num,
+  label,
+  alt,
+  children,
+}: {
+  id: string;
+  num: string;
+  label: string;
+  alt?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <section id={id} className={`py-20 px-6 ${alt ? "bg-muted/20" : ""}`}>
       <div className="max-w-6xl mx-auto">
@@ -482,12 +627,15 @@ function SkillBar({ n, w }: { n: string; w: number }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        setTimeout(() => setFilled(w), 200);
-        io.disconnect();
-      }
-    }, { threshold: 0.3 });
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setTimeout(() => setFilled(w), 200);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, [w]);
@@ -498,7 +646,10 @@ function SkillBar({ n, w }: { n: string; w: number }) {
         <span className="text-muted-foreground">{w}%</span>
       </div>
       <div className="h-1 bg-muted overflow-hidden">
-        <div className="h-full bg-primary transition-all duration-1000 ease-out" style={{ width: `${filled}%` }} />
+        <div
+          className="h-full bg-primary transition-all duration-1000 ease-out"
+          style={{ width: `${filled}%` }}
+        />
       </div>
     </div>
   );
@@ -510,7 +661,9 @@ function SkillTags({ title, tags }: { title: string; tags: string[] }) {
       <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{title}</div>
       <div className="flex flex-wrap gap-2">
         {tags.map((t) => (
-          <span key={t} className="text-xs px-3 py-1.5 border border-border bg-background">{t}</span>
+          <span key={t} className="text-xs px-3 py-1.5 border border-border bg-background">
+            {t}
+          </span>
         ))}
       </div>
     </div>

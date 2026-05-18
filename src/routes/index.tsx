@@ -4,7 +4,7 @@ import Portfolio from "@/components/Portfolio";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nhyl Cyrus J. Gervasio — Portfolio" },
+      { title: "Portfolio" },
       { name: "description", content: "IT student & software developer portfolio." },
     ],
     links: [
