@@ -19,11 +19,7 @@ import { useReveal } from "@/controllers/useReveal";
 import { useScrollSpy } from "@/controllers/useScrollSpy";
 import { useTypedRole } from "@/controllers/useTypedRole";
 
-import {
-  HERO_STATS,
-  NAV_LINKS,
-  ROLES,
-} from "@/models/portfolio.model";
+import { HERO_STATS, NAV_LINKS, ROLES } from "@/models";
 
 export default function Portfolio() {
   const { theme, toggle: toggleTheme } = useTheme();
